@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <title>Search</title>
+
+  </head>
+  <body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="color: #845EC2">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Philadelphia Nighttime Data Dashboard</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Prediction</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        
+      </span>
+    </div>
+  </div>
+</nav>
+
+<!-- Top Link -->
+<div class="background">
+
+<!-- Top Link -->
+  <div class="p-3 mb-2 bg-dark text-white">
+    <a href=""> </a>
+<!-- Left Panel -->
+<div class="p-3 mb-2 bg-dark text-white" style = "width: 450px">
+  <div id = "sidebar-text">
+    <h2 style="color:rgb(30, 130, 223);font-size:36px; font-family:avenir;" id = "title"></h2>
+    <p style="color:rgb(255, 230, 0);font-size:16px; font-family:avenir;" id = "content" ></p>
+    <p style="color:rgb(204, 208, 209);font-size:14px; font-family:avenir;" id = "description"></p>
+  </div>
+
+
+  <!-- <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Retail Type 
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">All Retail</a></li>
+      <li><a class="dropdown-item" href="#">Restaurants Only</a></li>
+      <li><a class="dropdown-item" href="#">Bars Only</a></li>
+      <li><a class="dropdown-item" href="#">Performing Arts Only</a></li>
+    </ul>
+  </div> -->
+
+  <div id="sidebar">
+   <!-- <button id="prev"> Previous </button> -->
+    <!-- <button id="next"> View Corridor </button>
+    <button id="prev"> Calculate </button> -->
+  </div>  
+
+
+  <!-- Slider bar-->
+<!-- This is the colored bar -->
+<div class="colored-bar">
+  <div class="x-container">Bars Count: </div>
+  <div id="numVal"></div> <!-- If you don't want the number to be displayed, delete this. This is to show at which number the label will change -->
+</div>
+  <div class="range-wrap1"> 
+    <div>
+      <span class="slider-left"><span id="slider-reset" class="slider-reset">-5%</span></span><span class="slider-center">
+    <input id="range1" type="range" class="range" name="range" min="0.95" max="1.05" value="1.0" step="0.05" list="tickmarks1">
+    </span><span id="slideroutput" class="slider-output slider-right">+5%</span>
+    <label id="display1"></label>
+    <div class="range-bars"></div>
+    <div class="range-bars-two"></div>
+    <datalist id="tickmarks1">
+      <option value="0.95" label="-5%"></option>
+      <option value="1.0" label="0%"></option>
+      <option value="1.05" label="+5%"></option>
+    </datalist>
+  </div>
+
+  <div class="colored-bar">
+    <div class="x-container">Restaurants Count: </div>
+    <div id="numVal"></div> <!-- If you don't want the number to be displayed, delete this. This is to show at which number the label will change -->
+  </div>  
+  <div class="range-wrap2"> 
+    <div>
+      <span class="slider-left"><span id="slider-reset" class="slider-reset">-5%</span></span><span class="slider-center">
+    <input id="range2" type="range" class="range" name="range" min="0.95" max="1.05" value="1.0" step="0.05" list="tickmarks2">
+    </span><span id="slideroutput" class="slider-output slider-right">+5%</span>
+    <label id="display2"></label>
+    <div class="range-bars"></div>
+    <div class="range-bars-two"></div>
+    <datalist id="tickmarks2">
+      <option value="0.95" label="-5%"></option>
+      <option value="1.0" label="0%"></option>
+      <option value="1.05" label="+5%"></option>
+    </datalist>
+  </div>
+
+  <div class="colored-bar">
+    <div class="x-container">Arts Establishments Count: </div>
+    <div id="numVal"></div> <!-- If you don't want the number to be displayed, delete this. This is to show at which number the label will change -->
+  </div>  
+  <div class="range-wrap3"> 
+    <div>
+      <span class="slider-left"><span id="slider-reset" class="slider-reset">-5%</span></span><span class="slider-center">
+    <input id="range3" type="range" class="range" name="range" min="0.95" max="1.05" value="1.0" step="0.05" list="tickmarks3">
+    </span><span id="slideroutput" class="slider-output slider-right">+5%</span>
+    <label id="display3"></label>
+    <div class="range-bars"></div>
+    <div class="range-bars-two"></div>
+    <datalist id="tickmarks3">
+      <option value="0.95" label="-5%"></option>
+      <option value="1.0" label="0%"></option>
+      <option value="1.05" label="+5%"></option>
+    </datalist>
+  </div>
+
+
+
+
+  <!-- Changeable text -->
+  <div id = "sidebar-below-text2">
+    <p id = "text" ></p>
+  </div>
+
+<!-- Map -->
+<div id="map" class="map"></div>
+
+
+
+
+<!-- Legend -->
+<div id="legend" class = "legend">
+  <p id=legendcontent></p>
+  <div id="min" class="leftlabel">
+  <p id=legendmin>-20%</p>
+  </div>
+  <div id="max" class="rightlabel">
+  <p id=legendmax>+20%</p> 
+  </div> 
+  <div id="gradient" class = "gradient"></div>
+</div>
+
+<div class="ui-widget"  style="text-align:left;">
+  <input style="color:rgb(10, 10, 10);font-size:14px; font-family:avenir;" id="autocomplete" placeholder="Search for: Corridor">
+</div> 
+
+  <!-- Javascript Imports -->
+  <script src="js/jquery-2.2.0.js"></script>
+  <script src="js/underscore.js"></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/2.0.2/turf.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.1/chroma.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/predictive_page_main.js"></script>  
+</body>
+</html>
