@@ -1,0 +1,12 @@
+  <!-- Legend -->
+  <table id="legend">
+    <tr class="scale">
+      <td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td>
+  </tr>
+  <tr class="text">
+      <td id="min" colspan="1">-20%</td>
+      <td id="mid" colspan="1">0%</td>
+      <td id="max" colspan="1">+20%</td>
+  </tr>
+  </table>
