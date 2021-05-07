@@ -1,0 +1,244 @@
+body {
+  padding: 0;
+  overflow: scroll;
+  font-family: colfax, helvetica, sans-serif;
+  background-color: black;
+
+}
+
+p.main {
+font-size: 24px;
+background-color: black;
+}
+
+.navbar {
+  height: 40px !important;
+  color: #845EC2 !important;
+  font-weight: bold  !important;
+}
+
+.background {
+  padding: 20px;
+  background-color: black;
+}
+
+.map {
+  position: absolute;
+  right: 0px;
+  left: 475px;
+  height: 100%;
+  top: 40px;
+}
+
+.sidebar {
+  position: absolute;
+  left: 0px;
+  width: 450px;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 20px;
+  font-size: 12px;
+  word-wrap: break-word;
+  background-color: black;
+}
+
+.output {
+position: auto;
+left: 0px;
+width: 450px;
+top: 0;
+bottom: 0;
+overflow-y: auto;
+padding: 20px;
+font-size: 16px;
+background-color: black;
+}
+
+.sidebar-below {
+position: absolute;
+left: 0px;
+width: 450px;
+top: 0px;
+bottom: 0;
+overflow-y: auto;
+padding: 20px;
+font-size: 16px;
+color:rgb(250, 228, 31);
+background-color: black;
+}
+
+.data-table {
+position: auto;
+left: 0px;
+width: 450px;
+top: 0px;
+bottom: 0;
+overflow-y: auto;
+padding: 20px;
+font-size: 14px;
+color:rgb(250, 228, 31);
+background-color:"#212529";
+}
+
+.col-head {
+font-weight: bold;
+font-size: 20;
+}
+
+.col-row {
+font-weight: bold;
+}
+
+
+
+.gradient {
+  position: absolute;
+  width: 240px;
+  height: 20px;
+  bottom: 15px;
+  padding: 0px;
+  margin: 0px;
+  background-image: linear-gradient(to right, #ff0000, #f66d00, #d7a700, #a0d600, #00ff00);
+}
+
+.legend {
+  position: absolute;
+  background-color: #212529;
+  z-index: 2000;
+  width: 270px;
+  height: 100px;
+  right: 0px;
+  bottom: 0px;
+  margin: 30px;
+  overflow-y: auto;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+}
+
+.leftlabel {
+  position: absolute;
+  width: 100px;
+  bottom: 20px;
+  float: left;
+  text-align: left;
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.rightlabel {
+  position: absolute;
+  width: 100px;
+  bottom: 20px;
+  right: 20px;
+  overflow-y: auto;
+  float: right;
+  text-align:right;
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+table th {
+  width: 2px;
+}
+
+#range-wrap {
+  position: relative;
+}
+
+input[type=range] {
+  width: 200px;
+  fill-opacity: yellow;
+}
+
+.range-bars {
+  width: 1px;
+  height: 10px;
+  border-right: 2px solid black;
+  position: absolute;
+  top: 13px;
+  bottom: 30px; 
+  left: 47px;
+  fill-opacity: yellow;
+}
+
+.range-bars-two {
+  width: 1px;
+  height: 10px;
+  border-right: 2px solid black;
+  position: absolute;
+  top: 13px;
+  left: 157px;
+  fill-opacity: yellow;
+}
+
+table#legend tr.scale td {
+  height: 1em;
+  width: 33.33%;
+}
+table#legend tr.text td:first-child {
+  text-align: left;
+}
+table#legend tr.text td:nth-child(2) {
+  text-align: center;
+}
+table#legend tr.text td:last-child {
+  text-align: right;
+} 
+
+#datalist {
+  display: none;
+  width: 200px;
+  justify-content: space-between;
+  margin-top: -23px;
+  padding-top: 0px;
+}
+
+
+
+.colored-bar {
+	background-color: rgb(125, 128, 129);
+  width: 400px;
+  top: 30px;
+  border-right: 2px solid black;
+}
+
+#autocomplete {
+  z-index: 100;
+  margin-bottom: 5px;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-content, .leaflet-popup-tip {
+  background: #212529;
+  color: white;
+}
+
+
+#intro {
+  height: 100%;
+}
+
+#intro {
+  background: url("https://images.unsplash.com/photo-1474936851948-9add5111c81f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+#intro {
+  color:#ffffff;
+}
+
+#button {
+color: #ffffff;
+background-color: #ffffff;
+}
