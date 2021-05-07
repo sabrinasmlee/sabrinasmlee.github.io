@@ -52,7 +52,7 @@ $( "#autocomplete" ).autocomplete();
    addDataToAutocomplete(arr1);  //passes array for sorting and to load search control.
 });
      
-      featureGroup.eachLayer(clickFeatureFunction);
+     // featureGroup.eachLayer(clickFeatureFunction);
       featureGroup.eachLayer(hoverFeatureFunction);
       featureGroup.eachLayer(hoverFeatureFunction2)
     }
