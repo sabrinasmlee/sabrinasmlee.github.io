@@ -226,7 +226,7 @@ table#legend tr.text td:last-child {
 }
 
 #intro {
-  background: url("https://images.unsplash.com/photo-1474936851948-9add5111c81f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80")no-repeat center center fixed;
+  background: url("https://raw.githubusercontent.com/sabrinasmlee/practicum_final/main/photo-1474936851948-9add5111c81f.jpeg?token=ANUWPPOGTAHPI2OH7JBFVJLASYEL2")no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -246,5 +246,7 @@ table#legend tr.text td:last-child {
   border-radius: 50%;
   font-size:22px;
   border: 1px solid #ffbf00;
+  background-color:#ffbf00; 
+  color:black;
 }
 
