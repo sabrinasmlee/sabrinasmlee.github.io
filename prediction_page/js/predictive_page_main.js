@@ -92,26 +92,20 @@ $.ajax('https://raw.githubusercontent.com/sabrinasmlee/musa_practicum_nighttime/
   })*/ 
 
 
-// Load in Philadelphia city limits 
-
-var district_boundary = new L.geoJson();
-district_boundary.addTo(map);
-
+//Load Philly Outline
 $.ajax({
-dataType: "json",
-url: "https://opendata.arcgis.com/datasets/405ec3da942d4e20869d4e1449a2be48_0.geojson",
-success: function(data) {
-    $(data.features).each(function(key, data) {
-        district_boundary.addData(data, {
-      style: styleTwo
-  });
-    });
-}
-}).error(function() {});  
+  dataType: "json",
+  url: "https://opendata.arcgis.com/datasets/405ec3da942d4e20869d4e1449a2be48_0.geojson",
+  success: function(data) {
+      //$(data.features).each(function(key, data) {
+        var district_boundary = new L.geoJson(data, {
+          style: styleThree
+        }).addTo(map);
+}});
 
 
 // Styles
-var scale = chroma.scale(['#f00', '#0f0']).mode('lrgb')
+var scale = chroma.scale(['#ff6f91', '#ff7f66', '#ffa034', '#eac700', '#a8eb12']).mode('lch') 
 .domain([-20,0,20]);  
 
 var styleOne = function(feature) {
@@ -138,6 +132,15 @@ var styleTwo = function(feature) {
     fillColor: "transparent",
     fillOpacity: 0.2,
   }};
+
+var styleThree = function(feature) {
+    return {
+      stroke: true,
+      color: "white",
+      weight: .5,
+      fillColor: "none",
+      //fillOpacity: .4
+    }};
 
 /* legend
 var legend = document.getElementById("legend")
@@ -300,11 +303,11 @@ slider("range3", "display3", "tickmarks3")
 
 
 //set the title
-$('#title').text("Predicting Flow of Trips to Commercial Corridors")
+$('#title').text("Nighttime Trip Predictions")
 //set the content
-$('#content').text("Toggle the slider bars to see how a change in the number of bars, restaurants and arts establishments will have a predicted impact on the flow of trips to the corridor!")
+$('#content').text("Adjust the slider bars to see how changing the number of establishments in a corridor would affect nighttime trips.")
 // set description 
-$('#description').text("This prototype shows a geographically representative sample of commercial corridors in Philadelphia.")
+$('#description').text("This tool predicts nighttime retail trips across a sample of commercial corridors in Philadelphia.")
 //set changeable text
 $('#text').text(" ")
 //Set Legend Content

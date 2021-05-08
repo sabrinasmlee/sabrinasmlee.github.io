@@ -92,7 +92,7 @@ $('#dropdown1').append(`<li><a class="dropdown-item" href="#">${layer.feature.pr
     //$('#selectedCorridor').text(layer.feature.properties.NAME)
     $('#content').text("Click reset to select a different commercial corridor.") 
     $('#corridor').text(`${layer.feature.properties.NAME}`)
-    $('#text').text(`has ${Math.round(layer.feature.properties.total_trips/17124*100)}% the average corridor's nighttime trips.`);
+    $('#text').text(`has ${Math.round(layer.feature.properties.total_trips/17124*100)}% the average corridor's nighttime retail trips.`);
       //Change table values
         $('#row1').text("$"+thousands_separators(Math.round(layer.feature.properties.weighted_inc))); 
         $('#row2').text(Math.round(layer.feature.properties.weighted_age*100)/100+" Years"); 

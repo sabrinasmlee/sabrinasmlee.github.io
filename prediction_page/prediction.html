@@ -42,36 +42,31 @@
 <!-- Top Link -->
 <div class="background">
 
-<!-- Top Link -->
-  <div class="p-3 mb-2 bg-dark text-white">
-    <a href=""> </a>
-<!-- Left Panel -->
-<div class="p-3 mb-2 bg-dark text-white" style = "width: 450px">
+<!-- Top Div -->
+<div class="p-3 mb-2 bg-dark text-white" style = "width: 440px">
   <div id = "sidebar-text">
-    <h2 style="color:rgb(30, 130, 223);font-size:36px; font-family:avenir;" id = "title"></h2>
-    <p style="color:rgb(255, 230, 0);font-size:16px; font-family:avenir;" id = "content" ></p>
-    <p style="color:rgb(204, 208, 209);font-size:14px; font-family:avenir;" id = "description"></p>
+    <h3 id = "title" style = "color: white"></h3>
+    <p id = "description"></p>
   </div>
 
-
+  <!-- Dropdowns -->
   <!-- <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Retail Type 
+      Commercial Corridor
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">All Retail</a></li>
-      <li><a class="dropdown-item" href="#">Restaurants Only</a></li>
-      <li><a class="dropdown-item" href="#">Bars Only</a></li>
-      <li><a class="dropdown-item" href="#">Performing Arts Only</a></li>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id = "dropdown1">  
     </ul>
+    <button class="btn btn-secondary" type="button" id="resetButton" aria-expanded="false">
+      Reset
+    </button>
   </div> -->
+</div>
 
+<!-- Left Panel -->
+<div class="p-3 mb-2 bg-dark text-white" style = "width: 440px">
   <div id="sidebar">
-   <!-- <button id="prev"> Previous </button> -->
-    <!-- <button id="next"> View Corridor </button>
-    <button id="prev"> Calculate </button> -->
+    <p id = "content" ></p>
   </div>  
-
 
   <!-- Slider bar-->
 <!-- This is the colored bar -->
@@ -81,36 +76,43 @@
 </div>
   <div class="range-wrap1"> 
     <div>
-      <span class="slider-left"><span id="slider-reset" class="slider-reset">-5%</span></span><span class="slider-center">
+      <div class="sliderLeft">-5%</div>
+      <div class="sliderCenter">0%</div>
+      <div class="sliderRight">5%</div>
+    </div>
+      <span class="slider-center">
     <input id="range1" type="range" class="range" name="range" min="0.95" max="1.05" value="1.0" step="0.05" list="tickmarks1">
-    </span><span id="slideroutput" class="slider-output slider-right">+5%</span>
-    <label id="display1"></label>
-    <div class="range-bars"></div>
+    <label class="label" id="display1"></label>
+    <!-- <div class="range-bars"></div>
     <div class="range-bars-two"></div>
     <datalist id="tickmarks1">
       <option value="0.95" label="-5%"></option>
       <option value="1.0" label="0%"></option>
       <option value="1.05" label="+5%"></option>
-    </datalist>
+    </datalist> -->
   </div>
 
   <div class="colored-bar">
     <div class="x-container">Restaurants Count: </div>
     <div id="numVal"></div> <!-- If you don't want the number to be displayed, delete this. This is to show at which number the label will change -->
   </div>  
+
   <div class="range-wrap2"> 
     <div>
-      <span class="slider-left"><span id="slider-reset" class="slider-reset">-5%</span></span><span class="slider-center">
+      <div class="sliderLeft">-5%</div>
+      <div class="sliderCenter">0%</div>
+      <div class="sliderRight">5%</div>
+    </div>
+    <span class="slider-center">
     <input id="range2" type="range" class="range" name="range" min="0.95" max="1.05" value="1.0" step="0.05" list="tickmarks2">
-    </span><span id="slideroutput" class="slider-output slider-right">+5%</span>
-    <label id="display2"></label>
-    <div class="range-bars"></div>
+    <label class="label" id="display2"></label>
+    <!-- <div class="range-bars"></div>
     <div class="range-bars-two"></div>
     <datalist id="tickmarks2">
       <option value="0.95" label="-5%"></option>
       <option value="1.0" label="0%"></option>
       <option value="1.05" label="+5%"></option>
-    </datalist>
+    </datalist> -->
   </div>
 
   <div class="colored-bar">
@@ -119,31 +121,33 @@
   </div>  
   <div class="range-wrap3"> 
     <div>
-      <span class="slider-left"><span id="slider-reset" class="slider-reset">-5%</span></span><span class="slider-center">
+      <div class="sliderLeft">-5%</div>
+      <div class="sliderCenter">0%</div>
+      <div class="sliderRight">5%</div>
+    </div>
+    <span class="slider-center">
     <input id="range3" type="range" class="range" name="range" min="0.95" max="1.05" value="1.0" step="0.05" list="tickmarks3">
-    </span><span id="slideroutput" class="slider-output slider-right">+5%</span>
-    <label id="display3"></label>
-    <div class="range-bars"></div>
-    <div class="range-bars-two"></div>
-    <datalist id="tickmarks3">
+    <label class="label" id="display3"></label>
+    <!-- <div class="range-bars"></div>
+    <div class="range-bars-two"></div> -->
+    <!-- <datalist id="tickmarks3">
       <option value="0.95" label="-5%"></option>
       <option value="1.0" label="0%"></option>
       <option value="1.05" label="+5%"></option>
-    </datalist>
+    </datalist> -->
+    
   </div>
-
-
-
 
   <!-- Changeable text -->
   <div id = "sidebar-below-text2">
     <p id = "text" ></p>
   </div>
 
+  <div class = "filler" style="height: 120px;"
+  </div>
+
 <!-- Map -->
 <div id="map" class="map"></div>
-
-
 
 
 <!-- Legend -->
@@ -159,7 +163,7 @@
 </div>
 
 <div class="ui-widget"  style="text-align:left;">
-  <input style="color:rgb(10, 10, 10);font-size:14px; font-family:avenir;" id="autocomplete" placeholder="Search for: Corridor">
+  <input style="color:rgb(10, 10, 10);font-size:14px; font-family:Verdana;" id="autocomplete" placeholder="Search for: Corridor">
 </div> 
 
   <!-- Javascript Imports -->
