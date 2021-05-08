@@ -50,11 +50,12 @@ $( "#autocomplete" ).autocomplete();
         arr1.push({label:data.features[i].properties.corridor, value:""});
     }
    addDataToAutocomplete(arr1);  //passes array for sorting and to load search control.
+   // featureGroup.eachLayer(clickFeatureFunction);
+   featureGroup.eachLayer(hoverFeatureFunction);
+   featureGroup.eachLayer(hoverFeatureFunction2)
 });
      
-     // featureGroup.eachLayer(clickFeatureFunction);
-      featureGroup.eachLayer(hoverFeatureFunction);
-      featureGroup.eachLayer(hoverFeatureFunction2)
+     
     }
   
 
@@ -223,8 +224,8 @@ var hoverFeatureFunction2 = function(layer) {
   //open popup;
   var popup = L.popup()
    .setLatLng(layer.getBounds().getCenter()) 
-   .setContent(`<p>CORRIDOR: ${layer.feature.properties.corridor} </p> 
-                <p>PERCENT CHANGE: ${layer.feature.properties.pct_change}% </p>`) 
+   .setContent(`<p><b>CORRIDOR:</b> ${layer.feature.properties.corridor} 
+              </br><b> PERCENT CHANGE:</b> ${layer.feature.properties.pct_change}% </p>`) 
    .openOn(map);
 })};
 
