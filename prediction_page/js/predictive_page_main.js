@@ -63,35 +63,6 @@ console.log("text")
 $(".range").change(onSliderChange)
     
 
-// buildPagewith(data)
-
-  // console.log("Here are the current values for ", bars, rest, arts)
-  // console.log(`https://raw.githubusercontent.com/sabrinasmlee/musa_practicum_nighttime/main/Prediction_geojsons/rest-${rest}-bars-${bars}-arts-${arts}%20.geojson`)
-  // call ajax here 
-
-  //var buildPagewith = function()
-
-
-// $(".range").change(onSliderChange)
-
-// convertPercentages($('#range1').val())
-// change range 1 to range 2 and then range 3 
-
-
-/*Import data
-$.ajax('https://raw.githubusercontent.com/sabrinasmlee/musa_practicum_nighttime/main/Prediction_geojsons/rest-105-bars-105-arts-105%20.geojson').done(function(json){
-  var data;
-  var featureGroup;
-  data = JSON.parse(json);
-  data = data.features.map(function(datum) {
-    if (_.isNull(datum.properties.predictions) || _.isNaN(datum.properties.predictions)) {
-      datum.properties.predictions = 0
-    } else {datum.properties.predictions = Number(_.initial(datum.properties.predictions).join(""))
-    }
-    return datum
-  })*/ 
-
-
 //Load Philly Outline
 $.ajax({
   dataType: "json",
@@ -198,7 +169,6 @@ $('#dropdown1').append(`<li><a class="dropdown-item" href="#">${layer.feature.pr
   }); 
   }
 
-
  ////////// Autocomplete search
  function addDataToAutocomplete(arr) {
                  
@@ -303,15 +273,9 @@ slider("range3", "display3", "tickmarks3")
 
 
 //set the title
-<<<<<<< HEAD
 $('#title').text("Nighttime Trip Predictions")
 //set the content
 $('#content').text("Adjust the slider bars to see how changing the number of establishments in a corridor would affect nighttime trips.")
-=======
-$('#title').text("Predicting Nighttime Traffic to Commercial Corridors")
-//set the content
-$('#content').text("Toggle the slider bars to see how a change in the number of bars, restaurants and arts establishments will impact the flow of trips to the corridor between 7PM and 12AM!")
->>>>>>> 
 // set description 
 $('#description').text("This tool predicts nighttime retail trips across a sample of commercial corridors in Philadelphia.")
 //set changeable text
