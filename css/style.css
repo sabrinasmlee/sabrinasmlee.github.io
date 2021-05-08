@@ -238,15 +238,34 @@ table#legend tr.text td:last-child {
   color:#ffffff;
 }
 
-
-.btn {
-  display: block;
-  height: 150px;
+.circle {
   width: 150px;
+  height: 150px;
   border-radius: 50%;
-  font-size:22px;
-  border: 1px solid #ffbf00;
-  background-color:#ffbf00; 
-  color:black;
+  background-color: #845EC2;
+  border-color: white;
+  outline-width: 3px;
+  color: white;
+  text-align: center;
+  padding-top: 35px;
 }
 
+.circletext {
+  text-align: center;
+  font-weight: bold;
+
+}
+
+#left {
+  position: absolute;
+  left: 250px;
+}
+
+#right {
+  position: absolute;
+  left: 550px;
+}
+
+.filler {
+  height: 200px;
+}
