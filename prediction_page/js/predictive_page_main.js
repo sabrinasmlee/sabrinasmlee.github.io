@@ -303,9 +303,15 @@ slider("range3", "display3", "tickmarks3")
 
 
 //set the title
+<<<<<<< HEAD
 $('#title').text("Nighttime Trip Predictions")
 //set the content
 $('#content').text("Adjust the slider bars to see how changing the number of establishments in a corridor would affect nighttime trips.")
+=======
+$('#title').text("Predicting Nighttime Traffic to Commercial Corridors")
+//set the content
+$('#content').text("Toggle the slider bars to see how a change in the number of bars, restaurants and arts establishments will impact the flow of trips to the corridor between 7PM and 12AM!")
+>>>>>>> 
 // set description 
 $('#description').text("This tool predicts nighttime retail trips across a sample of commercial corridors in Philadelphia.")
 //set changeable text
