@@ -238,7 +238,13 @@ table#legend tr.text td:last-child {
   color:#ffffff;
 }
 
-#button {
-color: #ffffff;
-background-color: #ffffff;
+
+.btn {
+  display: block;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  font-size:22px;
+  border: 1px solid #ffbf00;
 }
+
