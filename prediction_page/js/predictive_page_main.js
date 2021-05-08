@@ -300,9 +300,9 @@ slider("range3", "display3", "tickmarks3")
 
 
 //set the title
-$('#title').text("Predicting Flow of Trips to Commercial Corridors")
+$('#title').text("Predicting Nighttime Traffic to Commercial Corridors")
 //set the content
-$('#content').text("Toggle the slider bars to see how a change in the number of bars, restaurants and arts establishments will have a predicted impact on the flow of trips to the corridor!")
+$('#content').text("Toggle the slider bars to see how a change in the number of bars, restaurants and arts establishments will impact the flow of trips to the corridor between 7PM and 12AM!")
 // set description 
 $('#description').text("This prototype shows a geographically representative sample of commercial corridors in Philadelphia.")
 //set changeable text

@@ -90,7 +90,7 @@ var clickFeatureFunction = function(layer) {
 $('#dropdown1').append(`<li><a class="dropdown-item" href="#">${layer.feature.properties.NAME}</a></li>`)
   layer.on('click', function (event) {
     //$('#selectedCorridor').text(layer.feature.properties.NAME)
-    $('#content').text("Click reset to select a different commercial corridor.") 
+    $('#content').text("Click the reset button to select a new corridor.") 
     $('#corridor').text(`${layer.feature.properties.NAME}`)
     $('#text').text(`has ${Math.round(layer.feature.properties.total_trips/17124*100)}% the average corridor's nighttime trips.`);
       //Change table values
@@ -214,7 +214,7 @@ var buildPage = function(datum, style) {
   //set the title
   $('#title').text("Commercial Corridors")
   //set the content
-  $('#content').text("Select a corridor to see demographics of its nighttime visitors and visualize where visitors are coming from.")
+  $('#content').text("Select a corridor to see the demographics of its nighttime visitors and where visitors come from.")
   //Set the corridor text
   $('#corridor').text("")
   //set changeable text
