@@ -41,23 +41,20 @@ $( "#autocomplete" ).autocomplete();
     console.log(bars, rest, arts)
     $.ajax(`https://raw.githubusercontent.com/sabrinasmlee/musa_practicum_nighttime/main/Prediction_geojsons_v3/rest-${rest}-bars-${bars}-arts-${arts}%20.geojson`).done(function(json){
       data = JSON.parse(json)
-      tearDown()
+      tearDown(); 
       featureGroup = L.geoJson(data,{
           style: styleOne, 
           onEachFeature: forEachFeature
       }).addTo(map);
-      for (i = 0; i < data.features.length; i++) {  //loads State Name into an Array for searching
+      for (i = 0; i < data.features.length; i++) {  //loads Corridor Name into an Array for searching
         arr1.push({label:data.features[i].properties.corridor, value:""});
     }
    addDataToAutocomplete(arr1);  //passes array for sorting and to load search control.
    // featureGroup.eachLayer(clickFeatureFunction);
    featureGroup.eachLayer(hoverFeatureFunction);
    featureGroup.eachLayer(hoverFeatureFunction2)
-});
-     
-     
-    }
-  
+    });
+  }  
 
 console.log($(".range").val())
 console.log("text")
@@ -114,61 +111,25 @@ var styleThree = function(feature) {
       //fillOpacity: .4
     }};
 
-/* legend
-var legend = document.getElementById("legend")
-var cells = legend.rows[0].cells;
-$("#min").css({backgroundImage: scale(-20)})
-$("#mid").css({backgroundImage: scale(0)})
-$("#max").css({backgroundImage: scale(20)})
-/*for (var idx=0; idx<cells.length; idx++) {
-    var td = cells[idx];
-    td.style.backgroundColor = scale(20 - 
-      ((idx + 0.5) / cells.length) * (40));
-};*/ 
-
-/* Styles
-var styleOne = function(feature) {
-  return {
-    stroke: true,
-    color: '#ffcc00',
-    opacity: (feature.properties.pct_change),
-    weight: 1,
-    fillColor: '#ffcc00',
-    fillOpacity: (feature.properties.pct_change)
-  }}; */
-
-//Thousands separator function
-  function thousands_separators(num)
-  {
-    var num_parts = num.toString().split(".");
-    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return num_parts.join(".");
-  }
   
 //Click functions
-/*Function 1
-var clickFeatureFunction = function(layer) {
-$('#dropdown1').append(`<li><a class="dropdown-item" href="#">${layer.feature.properties.corridor}</a></li>`)
-  layer.on('click', function (event) {
-     $('#text').text("Under this scenario, the number of nighttime trips to "+(layer.feature.properties.corridor)+" will change by "+(layer.feature.properties.pct_change)+"% "); 
-       map.fitBounds(event.target.getBounds(), {maxZoom: 12})          
-  })
-  }; */ 
-
   function forEachFeature(feature, layer) {
-    // Tagging each corridor poly with their name for the search control.
+    // Tagging each corridor polygon with their name for the search control.
   layer._leaflet_id = feature.properties.corridor;
 
   var popupContent = "<p><b>CORRIDOR: </b>"+ feature.properties.corridor +
       "</br><b>PERCENT CHANGE: </b>"+ feature.properties.pct_change + "%" + '</p>';
 
   layer.bindPopup(popupContent);
-
   layer.on("click", function (e) { 
     featureGroup.setStyle(styleOne); //resets layer colors
-      layer.setStyle(highlight);  //highlights selected.
+      layer.setStyle(highlight);  //highlights selected      
   }); 
+  if (numVal.innerHTML==1.0){
+    tearDown()
   }
+  } 
+  
 
  ////////// Autocomplete search
  function addDataToAutocomplete(arr) {
@@ -193,7 +154,7 @@ ui.item.value='';
 
 // fire off click event and zoom to polygon  
 function polySelect(a){
-  map._layers[a].fire('click');  // 'clicks' on state name from search
+  map._layers[a].fire('click');  // 'clicks' on corridor name from search
   var layer = map._layers[a];
   map.fitBounds(layer.getBounds());  // zooms to selected poly
       }
@@ -267,7 +228,8 @@ var slider = function(rangeID, displayID, tickmarkID){
     }  
   } 
   return tickmarks 
-}
+  }  
+
 slider("range1", "display1", "tickmarks1")
 slider("range2", "display2", "tickmarks2")
 slider("range3", "display3", "tickmarks3")
@@ -293,3 +255,4 @@ if (featureGroup){
   map.removeLayer(featureGroup)
 }
 } 
+
