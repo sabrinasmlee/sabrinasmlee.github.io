@@ -20,7 +20,22 @@ var arr1 = [];
 /* =====================
 Code Start
 ===================== */
+// Load initial page
+$.ajax("https://raw.githubusercontent.com/sabrinasmlee/musa_practicum_nighttime/main/Prediction_geojsons_v3/rest-100-bars-100-arts-100%20.geojson").done(function(json){
+  data = JSON.parse(json)
+  tearDown(); 
+  featureGroup = L.geoJson(data,{
+      style: styleOne, 
+      onEachFeature: forEachFeature
+  }).addTo(map);
+}); 
 
+/*var buildPage = function(datum, style) {
+  featureGroup = L.geoJson(datum, {
+      style: style
+  }).addTo(map);
+
+buildPage(data, styleOne)*/ 
 
 // Function that takes 3 values 
 var convertPercentages = function(pct){
