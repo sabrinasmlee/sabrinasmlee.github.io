@@ -87,51 +87,76 @@ var styleTwo = function(feature) {
 //Click functions
 //Function 1
 var clickFeatureFunction = function(layer) {
-$('#dropdown1').append(`<li><a class="dropdown-item" href="#">${layer.feature.properties.NAME}</a></li>`)
+  console.log(L.stamp(layer))
+  li = $(`<li><a class="dropdown-item" href="#">${layer.feature.properties.NAME}</a></li>`)
+  li.click(function() {
+    selectFeature(layer.feature);
+  })
+  //li.data(`featureProps`, layer.feature.properties)
+$('#dropdown1').append(li)
+console.log(layer)
   layer.on('click', function (event) {
-    //$('#selectedCorridor').text(layer.feature.properties.NAME)
-    $('#content').text("Click the reset button to select a new corridor.") 
-    $('#corridor').text(`${layer.feature.properties.NAME}`)
-    $('#text').text(`has ${Math.round(layer.feature.properties.total_trips/17124*100)}% the average corridor's nighttime retail trips.`);
-      //Change table values
-        $('#row1').text("$"+thousands_separators(Math.round(layer.feature.properties.weighted_inc))); 
-        $('#row2').text(Math.round(layer.feature.properties.weighted_age*100)/100+" Years"); 
-        $('#row3').text(Math.round(layer.feature.properties.distance_from_home/1609.34*100)/100+" Miles"); 
-        $('#row4').text(Math.round(layer.feature.properties.weighted_pctWhite*100)/100+"%"); 
-        $('#row5').text(Math.round(layer.feature.properties.weighted_pctBlack*100)/100+"%"); 
-        $('#row6').text(Math.round(layer.feature.properties.weighted_pctHisp*100)/100+"%"); 
-    //Change legend
-    $('#legendcontent').text("Percent of Visitors by Census Tract");
-    document.getElementById("gradient").style.backgroundImage = "linear-gradient(to right, #4c2f7a, #4856a3, #3d7cc7, #34a3e6, #40c9ff";
-    
-
-    //Load census block group data
-    var name = layer.feature.properties.NAME
-    var nameNew = name.replace(/ /g,"-")
-    nameNew = nameNew.replace(/\//g,"-")
-    $.ajax(`https://raw.githubusercontent.com/sabrinasmlee/musa_practicum_nighttime/main/Corridor_CBG_geojsons/${nameNew}.geojson`).done(function(json){
-      var cbgData;
-      cbgData = JSON.parse(json);
-      buildCBGPage(cbgData, styleTwo);
-  })  
-  //Remove previous polygons
-   tearDown();        
-
-  //Add Outline
-  buildOutline(layer.feature.geometry, styleThree);
-
+    selectFeature(layer.feature);
   })
   };
+
+//Dropdown Select Function
+var selectFeature = function(feature) {
+  // var x = document.getElementById("dropdownMenuButton1").value;
+  // document.getElementById("demo").innerHTML = "You selected: " + x;
+  // console.log(x)
+
+  // const dropDownButton = document.getElementById("dropdownMenuButton1");
+  // dropDownButton.addEventListener('select', function (event) {
+  //   var x = document.getElementById("dropdownMenuButton1").value;
+  //   console.log(name)
+  
+  //layer.on('click', function (event) {
+   //$('#selectedCorridor').text(layer.feature.properties.NAME)
+   $('#content').text("Click the reset button to select a new corridor.") 
+   $('#corridor').text(`${feature.properties.NAME}`)
+   $('#text').text(`has ${Math.round(feature.properties.total_trips/17124*100)}% the average corridor's nighttime retail trips.`);
+     //Change table values
+       $('#row1').text("$"+thousands_separators(Math.round(feature.properties.weighted_inc))); 
+       $('#row2').text(Math.round(feature.properties.weighted_age*100)/100+" Years"); 
+       $('#row3').text(Math.round(feature.properties.distance_from_home/1609.34*100)/100+" Miles"); 
+       $('#row4').text(Math.round(feature.properties.weighted_pctWhite*100)/100+"%"); 
+       $('#row5').text(Math.round(feature.properties.weighted_pctBlack*100)/100+"%"); 
+       $('#row6').text(Math.round(feature.properties.weighted_pctHisp*100)/100+"%"); 
+   //Change legend
+   $('#legendcontent').text("Percent of Visitors by Census Tract");
+   document.getElementById("gradient").style.backgroundImage = "linear-gradient(to right, #4c2f7a, #4856a3, #3d7cc7, #34a3e6, #40c9ff";
+   
+
+ //  Load census block group data
+   var name = feature.properties.NAME
+   var nameNew = name.replace(/ /g,"-")
+   nameNew = nameNew.replace(/\//g,"-")
+   $.ajax(`https://raw.githubusercontent.com/sabrinasmlee/musa_practicum_nighttime/main/Corridor_CBG_geojsons/${nameNew}.geojson`).done(function(json){
+     var cbgData;
+     cbgData = JSON.parse(json);
+     buildCBGPage(cbgData, styleTwo);
+    })  
+ //Remove previous polygons
+  tearDown();        
+
+ //Add Outline
+ //buildOutline(feature.geometry, styleThree);
+
+ };
+
 
 //Reset Function
 var resetFunction = function() {
   const resetButton = document.getElementById("resetButton");
   resetButton.addEventListener('click', function (event) {
     tearDown(); 
-    tearDown2();
+    //tearDown2();
     buildPage(data, styleOne); 
     })
     }();
+
+
 
 //Mouseover functions
 //Function 1
@@ -210,6 +235,7 @@ var buildPage = function(datum, style) {
   
   featureGroup.eachLayer(clickFeatureFunction);
   featureGroup.eachLayer(hoverFeatureFunction);
+  $('#dropdownMenuButton1').change(console.log);
 
   //set the title
   $('#title').text("Commercial Corridors")

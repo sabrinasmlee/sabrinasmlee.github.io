@@ -60,6 +60,8 @@ p.main {
 }
 .btn-secondary {
     background-color: #845EC2 !important;
+   
+    overflow: auto !important;
 }
 
 #content {
@@ -76,6 +78,12 @@ p.main {
   padding: 20px;
   font-size: 16px;
   background-color: black;
+}
+
+
+.dropdown-menu {
+  overflow-y: auto;
+  height: 200px;
 }
 
 .sidebar-below {
