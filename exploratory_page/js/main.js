@@ -115,7 +115,7 @@ var selectFeature = function(feature) {
    //$('#selectedCorridor').text(layer.feature.properties.NAME)
    $('#content').text("Click the reset button to select a new corridor.") 
    $('#corridor').text(`${feature.properties.NAME}`)
-   $('#text').text(`has ${Math.round(feature.properties.total_trips/17124*100)}% the average corridor's nighttime retail trips.`);
+   $('#text').text(`has ${Math.round(feature.properties.total_trips/17124*100)}% of the average corridor's nighttime retail trips.`);
      //Change table values
        $('#row1').text("$"+thousands_separators(Math.round(feature.properties.weighted_inc))); 
        $('#row2').text(Math.round(feature.properties.weighted_age*100)/100+" Years"); 
